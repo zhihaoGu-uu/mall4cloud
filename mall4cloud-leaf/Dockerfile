@@ -14,7 +14,7 @@ VOLUME /tmp
 # 项目配置的日志文件目录
 #VOLUME /logs
 # 指定docker容器启动时运行jar包
-ENTRYPOINT ["java","-jar","mall4cloud-leaf.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.cloud.nacos.discovery.ip=192.168.159.131","-XX:+UseG1GC","-XX:MaxRAMPercentage=9.0","mall4cloud-leaf.jar"]
 # 指定时区
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
